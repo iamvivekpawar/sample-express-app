@@ -1,7 +1,7 @@
 FROM node:8-alpine
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+WORKDIR /src
+COPY package.json .
+RUN npm i
 COPY . .
-RUN npm install
-EXPOSE 4000
-CMD [ "node", "server.js" ]
+EXPOSE 3000
+CMD ["npm", "start"]
